@@ -1,3 +1,4 @@
+arch==7.2.0
 beautifulsoup4==4.14.3
 certifi==2026.2.25
 cffi==2.0.0
@@ -31,7 +32,7 @@ soupsieve==2.8.3
 statsmodels==0.14.6
 typing_extensions==4.15.0
 tzdata==2025.3
-urllib3==2.6.3
+urllib3==1.26.20
 websockets==15.0.1
 yfinance==1.2.0
 zipp==3.23.0
