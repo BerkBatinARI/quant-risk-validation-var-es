@@ -31,7 +31,15 @@ Markers indicate VaR exceptions (days where realised loss exceeds the predicted 
 - Breaches: 111
 - Breach rate: 2.3024%
 
+
 ![SPY GARCH VaR(99%) Backtest](reports/figures/SPY_var99_garch_backtest.png)
+## Project structure
+
+- `src/` — scripts (data download, feature engineering, risk models, backtests)
+- `data/` — raw and processed datasets (generated locally)
+- `reports/figures/` — key tracked outputs (plots embedded in this README)
+- `notebooks/` — exploration / scratch work
+
 
 ## Reproducibility
 
