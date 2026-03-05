@@ -16,3 +16,7 @@ reports/*
 
 # mac
 .DS_Store
+
+# Track summary tables as well (in addition to figures)
+!reports/tables/
+!reports/tables/**
