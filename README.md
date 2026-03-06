@@ -65,17 +65,25 @@ This checks both:
 - **independence** (are breaches clustered or roughly independent over time?)
 
 Results (LR statistics; lower is better):
+
 - **EWMA + Normal**: `LR_uc` **70.80**, `LR_ind` **4.36**, `LR_cc` **75.16**
 - **EWMA + Student-t (df=6)**: `LR_uc` **25.48**, `LR_ind` **4.66**, `LR_cc` **30.15**
 - **GARCH(1,1) + Normal**: `LR_uc` **60.39**, `LR_ind` **0.73**, `LR_cc` **61.12**
 
-| Model | Obs | Breaches | Breach rate | `LR_uc` | `LR_ind` | `LR_cc` |
-|---|---:|---:|---:|---:|---:|---:|
-| EWMA + Normal | 5263 | 124 | 2.356% | 70.80 | 4.36 | 75.16 |
-| EWMA + Student-t (df=6) | 5263 | 93 | 1.767% | 25.48 | 4.66 | 30.15 |
-| GARCH(1,1) + Normal | 4822 | 111 | 2.302% | 60.39 | 0.73 | 61.12 |
+**P-values (Chi-square approximation):**
+- Kupiec `LR_uc` uses **df = 1**
+- Christoffersen `LR_ind` uses **df = 1**
+- Christoffersen `LR_cc` uses **df = 2**
 
-Full summary table: [`reports/tables/SPY_christoffersen_summary.csv`](reports/tables/SPY_christoffersen_summary.csv)
+Interpretation (rule of thumb): if **p < 0.05**, reject the model’s 99% VaR coverage assumptions.
+
+| Model | Obs | Breaches | Breach rate | `LR_uc` | `p_uc` | `LR_ind` | `p_ind` | `LR_cc` | `p_cc` |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| EWMA + Normal | 5263 | 124 | 2.356% | 70.80 | ~0.000 | 4.36 | ~0.037 | 75.16 | ~0.000 |
+| EWMA + Student-t (df=6) | 5263 | 93 | 1.767% | 25.48 | ~0.000 | 4.66 | ~0.031 | 30.15 | ~0.000 |
+| GARCH(1,1) + Normal | 4822 | 111 | 2.302% | 60.39 | ~0.000 | 0.73 | ~0.392 | 61.12 | ~0.000 |
+
+Full summary table: [`reports/tables/SPY_christoffersen_summary_with_pvalues.csv`](reports/tables/SPY_christoffersen_summary_with_pvalues.csv)
 
 ## Reproducibility
 
