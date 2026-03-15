@@ -117,3 +117,15 @@ python src/kupiec_test.py
 python src/risk_garch.py
 python src/backtest_var_garch.py
 ```
+
+## Limitations
+
+- Results depend on the historical sample and do not account for regime shifts or structural breaks.
+- Tests here focus on VaR coverage and (for Christoffersen) independence; ES backtesting is not included.
+- The GARCH implementation is a transparent walk-forward refit and is not optimised for speed.
+
+## Next steps
+
+- Add ES backtesting alongside VaR tests.
+- Surface p-values directly in the main model comparison table.
+- Speed up GARCH by refitting on a schedule (weekly/monthly) and compare accuracy vs runtime.
